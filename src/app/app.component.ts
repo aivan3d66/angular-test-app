@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CurrenciesType, DataService} from "./data.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'my-app',
+  styleUrls: ['app.component.css'],
+  templateUrl: 'app.component.html',
+  providers: [DataService]
 })
+
 export class AppComponent {
-  title = 'test-app';
+  currencies: Array<CurrenciesType> = [];
+
+  constructor(private dataService: DataService) {
+  };
+
+  ngOnInit() {
+    this.currencies = this.dataService.getData();
+  }
 }

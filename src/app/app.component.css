@@ -1,0 +1,36 @@
+.app-container {
+  min-width: 540px;
+  max-width: 540px;
+  padding: 4em;
+  margin: 0 auto;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  max-width: 100px;
+  margin: 20px auto;
+}
+
+.content {
+  width: 768px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f3f6;
+  transition: 0.3s;
+}
+
+.verdanaFont {
+  font-size: 13px;
+  font-family: Verdana, sans-serif;
+}
+
+.navyColor {
+  color: navy;
+}
+
+
