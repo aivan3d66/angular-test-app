@@ -1,31 +1,20 @@
 import {Component} from "@angular/core";
+import {CurrenciesType, DataService} from "../../data.service";
 
 @Component({
   selector: 'header',
-  template: `
-    <section>
-      <div>
-        <h4>Currency exchange</h4>
-        <ul>
-          <li>
-            <span>UAH:</span>
-            <span>123</span>
-          </li>
-          <li>
-            <span>USD:</span>
-            <span>123</span>
-          </li>
-          <li>
-            <span>EUR:</span>
-            <span>123</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-  `,
-  styleUrls: ['header.component..css'],
+  templateUrl: 'header.component.html',
+  styleUrls: ['header.component.css'],
+  providers: [DataService]
 })
 
 export class HeaderComponent {
+  currencies = [] as Array<CurrenciesType>;
 
+  constructor(private dataService: DataService) {
+  };
+
+  ngOnInit() {
+    this.currencies = this.dataService.getData();
+  }
 }

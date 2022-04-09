@@ -1,18 +1,9 @@
 <section>
   <div>
-    <h4>Currency exchange</h4>
+    <img src="./../../../assets/image/exchange.png" alt="logo">
     <ul>
-      <li>
-        <span>UAH:</span>
-        <span>123</span>
-      </li>
-      <li>
-        <span>USD:</span>
-        <span>123</span>
-      </li>
-      <li>
-        <span>EUR:</span>
-        <span>123</span>
+      <li *ngFor="let currency of currencies">
+        {{currency.currencyName}} - {{currency.buyRate}}
       </li>
     </ul>
   </div>

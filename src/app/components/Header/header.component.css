@@ -1,25 +1,29 @@
 section {
   width: 100%;
   margin: 0 0 60px 0;
-
+  color: #ffffff;
   text-align: center;
-  background-color: rgba(249, 247, 246, 0.9);
-  box-shadow: 0 2px 10px 1px rgba(34, 60, 80, 0.2);
+  background-color: rgba(50, 53, 58, 1);
+  box-shadow: 0 2px 5px rgba(50, 53, 58, 1);
 }
 
 div {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 0 10px;
+}
+
+img {
+  width: 60px;
+  height: auto;
 }
 
 ul {
   display: flex;
   list-style: none;
-
 }
 
 li {
