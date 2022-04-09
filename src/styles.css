@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #EECFBA, #C5DDE8) no-repeat center 100%;
+}
