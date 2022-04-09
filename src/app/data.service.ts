@@ -17,33 +17,45 @@ export class DataService {
       sellRate: 3.06,
     },
     {
-      currencyName: 'RUR',
+      currencyName: 'BYN',
       buyRate: 0.0345,
       sellRate: 0.0341,
     },
   ] as Array<CurrenciesType>;
 
-  private currentCurrency: string = 'USD';
-  private isBuying: boolean = true;
-  private amountOfBYN: string = '';
-  private amountOfCurrency: string = '';
+  currentCurrency: string = 'USD';
+  isBuying: boolean = true;
+  amountOfUAH: string = '';
+  amountOfCurrency: string = '';
 
   getData(): Array<CurrenciesType> {
     return this.currencies;
   }
 
-  changeCurrencyField(amountOfBYN: string, amountOfCurrency: string) {
-    this.amountOfBYN = amountOfBYN;
+  private changeCurrencyField(amountOfUAH: string, amountOfCurrency: string) {
+    this.amountOfUAH = amountOfUAH;
     this.amountOfCurrency = amountOfCurrency
   }
 
-  changeAction(isBuying: boolean) {
+  getChangeCurrencyField(amountOfUAH: string, amountOfCurrency: string) {
+    return this.changeCurrencyField(amountOfUAH, amountOfCurrency)
+  }
+
+  private changeAction(isBuying: boolean) {
     this.isBuying = isBuying
   }
 
-  changeCurrentCurrency(currentCurrency: string) {
+  getChangeAction(isBuying: boolean) {
+    return this.changeAction(isBuying)
+  }
+
+  private changeCurrentCurrency(currentCurrency: string) {
     this.currentCurrency = currentCurrency;
-    this.amountOfBYN = '';
+    this.amountOfUAH = '';
     this.amountOfCurrency = '';
+  }
+
+  getChangeCurrentCurrency(currentCurrency: string) {
+    return this.changeCurrentCurrency(currentCurrency)
   }
 }
