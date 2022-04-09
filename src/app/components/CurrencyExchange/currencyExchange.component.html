@@ -1,0 +1,91 @@
+<div [ngClass]="{currency:true}">
+  <h2>Currency exchange</h2>
+  <div [ngClass]="{currencyNames:true}">
+    <p>Current currency:</p>
+    <ul>
+      <li
+        [ngClass]="{currencies:true}"
+        *ngFor="let currency of currencies"
+        (click)="changeCurrentCurrency($event)"
+        [attr.aria-label]="currency.currencyName"
+        [style.backgroundColor]="currentCurrency === currency.currencyName ? 'cornflowerblue' : 'white'"
+        [style.color]="currentCurrency === currency.currencyName ? 'white' : 'cornflowerblue'"
+      >
+        {{currency.currencyName}}
+      </li>
+    </ul>
+  </div>
+  <div [ngClass]="{currencyActions:true}">
+    <button
+      (click)="changeAction($event)"
+      data-action="buy"
+      [style.backgroundColor]="isBuying ? 'rgba(100, 149, 237, 100)' : 'transparent'"
+      [style.color]="isBuying ? '#ffffff' : 'rgba(100, 149, 237, 100)'"
+    >
+      Buy
+    </button>
+    <button
+      (click)="changeAction($event)"
+      data-action="sell"
+      [style.backgroundColor]="!isBuying ? 'rgba(100, 149, 237, 100)' : 'transparent'"
+      [style.color]="!isBuying ? '#ffffff' : 'rgba(100, 149, 237, 100)'"
+    >
+      Sell
+    </button>
+  </div>
+  <div [ngClass]="{fields:true}">
+    <p>Currency rate:
+      <span>
+            {{currencyRate}}
+          </span>
+    </p>
+    <div *ngIf="isBuying">
+      <label>
+        You give the next amount of <b>UAH</b>:
+        <input
+          [ngModel]="amountOfUAH"
+          (change)="changeCurrencyField($event)"
+          value={{amountOfUAH}}
+          name="amountOfUAH"
+          type="number"
+          data-currency="uah"
+        >
+      </label>
+      <label>
+        You get the next amount of {{currentCurrency}}:
+        <input
+          [ngModel]="amountOfCurrency"
+          (change)="changeCurrencyField($event)"
+          value={{amountOfCurrency}}
+          name="amountOfCurrency"
+          type="number"
+          data-currency="currency"
+        >
+      </label>
+    </div>
+    <div *ngIf="!isBuying">
+      <label>
+        You give the next amount of {{currentCurrency}}:
+        <input
+          [(ngModel)]="amountOfCurrency"
+          (change)="changeCurrencyField($event)"
+          value={{amountOfCurrency}}
+          name="amountOfCurrency"
+          data-currency="currency"
+          type="number"
+        />
+      </label>
+      <label>
+        You get the next amount of <b>UAH</b>:
+        <input
+          [(ngModel)]="amountOfUAH"
+          (change)="changeCurrencyField($event)"
+          name="amountOfUAH"
+          value={{amountOfUAH}}
+          data-currency="uah"
+          type="number"
+        />
+      </label>
+    </div>
+  </div>
+</div>
