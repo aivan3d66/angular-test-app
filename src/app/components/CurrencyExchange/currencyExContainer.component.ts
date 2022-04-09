@@ -1,18 +1,37 @@
-import {Component} from '@angular/core';
+import {Component, Input,  OnChanges, OnInit,} from '@angular/core';
 import {CurrenciesType, DataService} from "../../data.service";
 
 @Component({
   selector: 'currency-container',
   template: `
     <div>
-      <currency-comp></currency-comp>
+      <currency-comp
+        (onClick)="changeAction($event)"
+        (onChange)="changeCurrentCurrency($event); changeCurrencyField($event)"
+        [isBuying]="isBuying"
+        [amountOfUAH]="amountOfUAH"
+        [currencyRate]="currencyRate"
+        [currentCurrency]="currentCurrency"
+        [amountOfCurrency]="amountOfCurrency"
+        [currencies]="currencies"
+        [currenciesName]="currenciesName"
+      ></currency-comp>
     </div>
   `,
   providers: [DataService]
 })
-export class CurrencyExContainerComponent {
-  currencies: Array<CurrenciesType> = [];
+export class CurrencyExContainerComponent implements OnInit {
+  @Input() currencies: Array<CurrenciesType> = [];
+
   currencyRate: number = 0;
+  currentCurrency: string = 'USD';
+  isBuying: boolean = true;
+  amountOfUAH: string = '';
+  amountOfCurrency: string = '';
+
+  constructor(private dataService: DataService) {
+  };
+
   currenciesName = this.currencies.map((currency: CurrenciesType) => {
     if (currency.currencyName === this.currentCurrency) {
       this.currencyRate = this.isBuying ? currency.buyRate : currency.sellRate;
@@ -20,24 +39,12 @@ export class CurrencyExContainerComponent {
     return currency.currencyName;
   });
 
-  currentCurrency: string = 'USD';
-  isBuying: boolean = true;
-  amountOfBYN: string = '';
-  amountOfCurrency: string = '';
-
-  constructor(private dataService: DataService) {
-  };
-
-  ngOnInit() {
-    this.currencies = this.dataService.getData();
-  }
-
   changeCurrencyField (e: any){
     let value = e.currentTarget.value;
     if (!isFinite(+value)) return;
     if (e.currentTarget.dataset.currency) {
       const trigger: string = e.currentTarget.dataset.currency;
-      if (trigger === 'byn') {
+      if (trigger === 'uah') {
         if (value === '') {
           this.dataService.getChangeCurrencyField(value, value)
         } else {
@@ -58,6 +65,25 @@ export class CurrencyExContainerComponent {
   };
 
   changeCurrentCurrency(e: any) {
-    e.currentTarget.dataset.currency && this.dataService.getChangeCurrentCurrency(e.currentTarget.dataset.currency);
+    e.currentTarget.ariaLabel && this.dataService.getChangeCurrentCurrency(e.currentTarget.ariaLabel);
   };
+
+  ngOnInit() {
+    this.currencies = this.dataService.getData();
+  }
+
+  ngAfterContentChecked() {
+    this.currencies = this.dataService.getData();
+    this.isBuying = this.dataService.isBuying;
+    this.currentCurrency = this.dataService.currentCurrency;
+    this.amountOfUAH = this.dataService.amountOfUAH;
+    this.amountOfCurrency = this.dataService.amountOfCurrency;
+
+    this.currenciesName = this.currencies.map((currency: CurrenciesType) => {
+      if (currency.currencyName === this.currentCurrency) {
+        this.currencyRate = this.isBuying ? currency.buyRate : currency.sellRate;
+      }
+      return currency.currencyName;
+    });
+  }
 }
