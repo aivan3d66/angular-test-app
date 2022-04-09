@@ -17,5 +17,5 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(45deg, #EECFBA, #C5DDE8) no-repeat center 100%;
+  background-color: rgba(220, 220, 220, 0.5);
 }
