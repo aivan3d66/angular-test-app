@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
         sellRate: value
       }))
 
-      return this.dataService.setData(this.currencies = response.map((m: any) => m).filter((f: CurrenciesType) => f.currencyName === "UAH" || f.currencyName === "EUR" || f.currencyName === "USD" || f.currencyName === "BYN"))
+      return this.dataService.setData(this.currencies = response.map((m: any) => m));
     });
   }
 }
