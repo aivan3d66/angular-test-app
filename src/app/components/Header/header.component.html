@@ -2,8 +2,9 @@
   <div>
     <img src="./../../../assets/image/exchange.png" alt="logo">
     <ul>
+      <span>Open exchange range (based USD):</span>
       <li *ngFor="let currency of currencies">
-        {{currency.currencyName}} - {{currency.buyRate}}
+        {{currency.currencyName}} - {{currency.buyRate }}
       </li>
     </ul>
   </div>
