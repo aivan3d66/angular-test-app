@@ -1,6 +1,6 @@
 import {AfterContentChecked, Component, OnInit} from '@angular/core';
 import {CurrenciesType, DataService} from "../../data.service";
-import {ApiService} from "../../api.service";
+import {ApiService} from "../../api/api.service";
 
 @Component({
   selector: 'currency-container',
