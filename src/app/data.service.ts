@@ -7,8 +7,8 @@ export type CurrenciesType = {
 export class DataService {
   private currencies = [] as Array<CurrenciesType>;
   isBuying: boolean = true;
-  currentCurrencyFirst: string = 'UAH';
-  currentCurrencySecond: string = 'USD';
+  currentCurrencyFirst: string = 'EUR';
+  currentCurrencySecond: string = 'UAH';
   amountOfUAH: string = '';
   amountOfUAHSecond: string = '';
   amountOfCurrency: string = '';
