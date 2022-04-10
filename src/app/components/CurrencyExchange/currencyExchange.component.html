@@ -77,7 +77,7 @@
         <label>
           You get the next amount of:
           <input
-            (change)="changeCurrencyFieldSecond($event)"
+            (input)="changeCurrencyFieldSecond($event)"
             value={{amountOfCurrency}}
             type="number"
             data-currency="currency"
@@ -100,7 +100,7 @@
         <label>
           You give the next amount of:
           <input
-            (change)="changeCurrencyFieldFirst($event)"
+            (input)="changeCurrencyFieldFirst($event)"
             value={{amountOfUAH}}
             type="number"
             data-currency="usd"
