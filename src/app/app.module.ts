@@ -5,11 +5,13 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from "./components/Header/header.component";
 import {CurrencyExchangeComponent} from "./components/CurrencyExchange/currencyExchange.component";
 import {CurrencyExContainerComponent} from "./components/CurrencyExchange/currencyExContainer.component";
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
