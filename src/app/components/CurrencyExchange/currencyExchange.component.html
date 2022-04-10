@@ -21,7 +21,7 @@
   <div [ngClass]="{fields:true}">
     <p>Currency rate:
       <span>
-        {{currencyRate}}
+        {{currencyRate.toFixed(3)}}
       </span>
     </p>
     <div *ngIf="isBuying">
