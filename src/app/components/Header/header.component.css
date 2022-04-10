@@ -24,6 +24,7 @@ img {
 ul {
   display: flex;
   list-style: none;
+  color: #bababa;
 }
 
 li {
