@@ -1,5 +1,6 @@
-import {Component, Input,  OnChanges, OnInit,} from '@angular/core';
+import {AfterContentChecked, Component} from '@angular/core';
 import {CurrenciesType, DataService} from "../../data.service";
+import {ApiService} from "../../api.service";
 
 @Component({
   selector: 'currency-container',
@@ -18,10 +19,10 @@ import {CurrenciesType, DataService} from "../../data.service";
       ></currency-comp>
     </div>
   `,
-  providers: [DataService]
+  providers: [DataService, ApiService]
 })
-export class CurrencyExContainerComponent implements OnInit {
-  @Input() currencies: Array<CurrenciesType> = [];
+export class CurrencyExContainerComponent implements AfterContentChecked {
+  currencies: Array<CurrenciesType> = [];
 
   currencyRate: number = 0;
   currentCurrency: string = 'USD';
@@ -29,7 +30,7 @@ export class CurrencyExContainerComponent implements OnInit {
   amountOfUAH: string = '';
   amountOfCurrency: string = '';
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private apiService: ApiService) {
   };
 
   currenciesName = this.currencies.map((currency: CurrenciesType) => {
@@ -69,7 +70,15 @@ export class CurrencyExContainerComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.currencies = this.dataService.getData();
+    this.apiService.getData().subscribe((data: any) => {
+      const response = Object.entries(data.rates).map(([key, value]) => ({
+        currencyName: key,
+        buyRate: value,
+        sellRate: value
+      }))
+
+      return this.dataService.setData(this.currencies = response.map((m: any) => m).filter((f: any) => f.currencyName === "UAH" || f.currencyName === "EUR" || f.currencyName === "USD" || f.currencyName === "BYN"))
+    });
   }
 
   ngAfterContentChecked() {
