@@ -44,7 +44,7 @@ export class CurrencyExContainerComponent implements OnInit, AfterContentChecked
 
   currenciesName = this.currencies.map((currency: CurrenciesType) => {
     if (currency.currencyName === this.currentCurrencyFirst) {
-      this.currencyRate = this.isBuying ? currency.buyRate : currency.sellRate;
+      this.currencyRate = this.isBuying ? currency.buyRate : currency.sellRate - 0.01;
     }
     return currency.currencyName;
   });
@@ -130,7 +130,7 @@ export class CurrencyExContainerComponent implements OnInit, AfterContentChecked
 
     this.currenciesName = this.currencies.map((currency: CurrenciesType) => {
       if (currency.currencyName === this.currentCurrencyFirst) {
-        this.currencyRate = this.isBuying ? currency.buyRate : currency.sellRate;
+        this.currencyRate = this.isBuying ? currency.buyRate : currency.sellRate - 0.01;
       }
       return currency.currencyName;
     });
