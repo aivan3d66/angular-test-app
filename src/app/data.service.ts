@@ -6,27 +6,20 @@ export type CurrenciesType = {
 
 export class DataService {
   private currencies = [] as Array<CurrenciesType>;
-
-  currentCurrency: string = 'USD';
   isBuying: boolean = true;
+  currentCurrencyFirst: string = 'UAH';
+  currentCurrencySecond: string = 'USD';
   amountOfUAH: string = '';
+  amountOfUAHSecond: string = '';
   amountOfCurrency: string = '';
+  amountOfCurrencySecond: string = '';
 
   getData(): Array<CurrenciesType> {
     return this.currencies;
   }
 
-  setData(newData: any) {
+  setData(newData: Array<CurrenciesType>) {
     this.currencies = newData;
-  }
-
-  private changeCurrencyField(amountOfUAH: string, amountOfCurrency: string) {
-    this.amountOfUAH = amountOfUAH;
-    this.amountOfCurrency = amountOfCurrency
-  }
-
-  getChangeCurrencyField(amountOfUAH: string, amountOfCurrency: string) {
-    return this.changeCurrencyField(amountOfUAH, amountOfCurrency)
   }
 
   private changeAction(isBuying: boolean) {
@@ -34,16 +27,46 @@ export class DataService {
   }
 
   getChangeAction(isBuying: boolean) {
+    this.amountOfUAH = '';
+    this.amountOfCurrency = '';
     return this.changeAction(isBuying)
   }
 
-  private changeCurrentCurrency(currentCurrency: string) {
-    this.currentCurrency = currentCurrency;
+  private changeCurrencyFieldFirst(amountOfUAH: string, amountOfCurrency: string) {
+    this.amountOfUAH = amountOfUAH;
+    this.amountOfCurrency = amountOfCurrency
+  }
+
+  getChangeCurrencyField(amountOfUAH: string, amountOfCurrency: string) {
+    return this.changeCurrencyFieldFirst(amountOfUAH, amountOfCurrency)
+  }
+
+  private changeCurrencyFieldSecond(amountOfUAHSecond: string, amountOfCurrencySecond: string) {
+    this.amountOfUAHSecond = amountOfUAHSecond;
+    this.amountOfCurrencySecond = amountOfCurrencySecond
+  }
+
+  getChangeCurrencyFieldSecond(amountOfUAHSecond: string, amountOfCurrencySecond: string) {
+    return this.changeCurrencyFieldSecond(amountOfUAHSecond, amountOfCurrencySecond)
+  }
+
+  private changeCurrentCurrencyFirst(currentCurrencyFirst: string) {
+    this.currentCurrencyFirst = currentCurrencyFirst;
     this.amountOfUAH = '';
     this.amountOfCurrency = '';
   }
 
-  getChangeCurrentCurrency(currentCurrency: string) {
-    return this.changeCurrentCurrency(currentCurrency)
+  getChangeCurrentCurrencyFirst(currentCurrencyFirst: string) {
+    return this.changeCurrentCurrencyFirst(currentCurrencyFirst)
+  }
+
+  private changeCurrentCurrencySecond(currentCurrencySecond: string) {
+    this.currentCurrencySecond = currentCurrencySecond;
+    this.amountOfUAH = '';
+    this.amountOfCurrency = '';
+  }
+
+  getChangeCurrentCurrencySecond(currentCurrencySecond: string) {
+    return this.changeCurrentCurrencySecond(currentCurrencySecond)
   }
 }
