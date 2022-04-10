@@ -9,27 +9,39 @@ import {CurrenciesType, DataService} from "../../data.service";
 })
 
 export class CurrencyExchangeComponent {
-  @Input() amountOfUAH: string = "";
-  @Input() currentCurrency: string = "";
-  @Input() currenciesName: string[] = [];
   @Input() isBuying: boolean = true;
   @Input() currencyRate: number = 0;
-  @Input() amountOfCurrency: string = '';
   @Input() currencies: Array<CurrenciesType> = [];
+  @Input() currentCurrencyFirst: string = "";
+  @Input() currentCurrencySecond: string = "";
+  @Input() amountOfUAH: string = "";
+  @Input() amountOfUAHSecond: string = "";
+  @Input() amountOfCurrency: string = "";
+  @Input() amountOfCurrencySecond: string = "";
 
   @Output() onClick = new EventEmitter();
-  @Output() onChange = new EventEmitter();
+  @Output() onChangeF = new EventEmitter();
+  @Output() onChangeS = new EventEmitter();
+  @Output() onInput = new EventEmitter();
 
   changeAction(e: any) {
     this.onClick.emit(e)
   }
 
-  changeCurrentCurrency(e: any) {
-    this.onChange.emit(e)
+  changeCurrentCurrencyFirst(e: any) {
+    this.onChangeF.emit(e)
   }
 
-  changeCurrencyField(e: any) {
-    this.onChange.emit(e)
+  changeCurrentCurrencySecond(e: any) {
+    this.onChangeS.emit(e)
+  }
+
+  changeCurrencyFieldFirst(e: any) {
+    this.onInput.emit(e)
+  }
+
+  changeCurrencyFieldSecond(e: any) {
+    this.onInput.emit(e)
   }
 }
 
