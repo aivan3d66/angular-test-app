@@ -1,27 +1,11 @@
 export type CurrenciesType = {
   currencyName: string,
   buyRate: number,
-  sellRate: number,
+  sellRate: number
 }
 
 export class DataService {
-  private currencies = [
-    {
-      currencyName: 'USD',
-      buyRate: 2.62,
-      sellRate: 2.58,
-    },
-    {
-      currencyName: 'EUR',
-      buyRate: 3.1,
-      sellRate: 3.06,
-    },
-    {
-      currencyName: 'BYN',
-      buyRate: 0.0345,
-      sellRate: 0.0341,
-    },
-  ] as Array<CurrenciesType>;
+  private currencies = [] as Array<CurrenciesType>;
 
   currentCurrency: string = 'USD';
   isBuying: boolean = true;
@@ -30,6 +14,10 @@ export class DataService {
 
   getData(): Array<CurrenciesType> {
     return this.currencies;
+  }
+
+  setData(newData: any) {
+    this.currencies = newData;
   }
 
   private changeCurrencyField(amountOfUAH: string, amountOfCurrency: string) {
