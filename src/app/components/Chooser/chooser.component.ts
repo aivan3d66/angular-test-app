@@ -17,7 +17,7 @@ export class Chooser implements ControlValueAccessor {
   @Input() title: string = "";
   @Input() value: string = "";
 
-  chooserForm: FormGroup
+  chooserForm: FormGroup;
 
   constructor(fb: FormBuilder) {
     this.chooserForm = fb.group({

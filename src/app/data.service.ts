@@ -10,7 +10,6 @@ export class DataService {
   currentCurrencyFirst: string = 'EUR';
   currentCurrencySecond: string = 'UAH';
   amountOfUAH: string = '';
-  amountOfUAHSecond: string = '';
   amountOfCurrency: string = '';
   amountOfCurrencySecond: string = '';
 

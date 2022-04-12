@@ -12,7 +12,8 @@ import {ApiService} from "./api/api.service";
 export class AppComponent implements OnInit {
   currencies = [] as Array<CurrenciesType>;
 
-  constructor(private dataService: DataService, private apiService: ApiService) {};
+  constructor(private dataService: DataService, private apiService: ApiService) {
+  };
 
   ngOnInit() {
     this.apiService.getData().subscribe((data: any) => {
