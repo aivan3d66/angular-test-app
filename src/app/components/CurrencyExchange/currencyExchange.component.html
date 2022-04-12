@@ -20,7 +20,7 @@
   </div>
   <div [ngClass]="{fields:true}">
     <p>Currency rate:
-      <span>
+      <span [ngClass]="{rateSpan:true}">
         {{currencyRate.toFixed(3)}}
       </span>
     </p>
