@@ -1,23 +1,26 @@
 <div [formGroup]="chooserForm" [ngClass]="{selectorWrapper:true}">
-  <label>
-    {{title}}
+  <label for="field">{{title}}</label>
+  <div>
     <input
+      id="field"
       type="number"
       formControlName="amount"
       placeholder="Write the number"
       [value]="value"
     >
-  </label>
-  <select formControlName="currency">
-    <option
-      *ngFor="let currency of currencies"
-      [value]="currency.currencyName"
-      [selected]="currentCurrency === currency.currencyName"
-      [ngValue]="currency.currencyName"
-      [ngClass]="{currencies:true}"
-    >
-      {{currency.currencyName}}
-    </option>
-  </select>
+    <select formControlName="currency">
+      <option
+        *ngFor="let currency of currencies"
+        [value]="currency.currencyName"
+        [selected]="currentCurrency === currency.currencyName"
+        [ngValue]="currency.currencyName"
+        [ngClass]="{currencies:true}"
+      >
+        {{currency.currencyName}}
+      </option>
+    </select>
+  </div>
+
+
 </div>
 
