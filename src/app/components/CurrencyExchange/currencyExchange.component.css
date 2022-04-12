@@ -2,7 +2,7 @@
 
 .currency {
   margin: 50px 0 0 0;
-  padding: 0 15px;
+  padding: 0 15px 15px 15px;
   font-family: FreeMono, monospace;
   border: 2px solid transparent;
   border-radius: 10px;
@@ -14,92 +14,6 @@ h2 {
   color: rgb(77, 77, 77);
   text-align: center;
   letter-spacing: 2px;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-}
-
-li {
-  display: inline-block;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-/*CURRENCY-NAMES*/
-
-.currencyNames {
-  display: flex;
-  justify-content: space-between;
-}
-
-p {
-  padding: 7px 0;
-}
-
-.currencies {
-  padding: 5px 10px;
-  color: cornflowerblue;
-  border: 2px solid rgba(100, 149, 237, 100);
-  transition: 0.3s;
-}
-
-/*FIELDS*/
-
-.fields {
-  display: block;
-  margin-bottom: 20px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  outline: none;
-  border: 2px solid transparent;
-  transition: 0.3s;
-}
-
-input:hover {
-  border-color: rgba(100, 149, 237, 100);
-}
-
-input:active,
-input:focus {
-  border: 2px solid transparent;
-  border-bottom: 2px solid rgba(100, 149, 237, 100);
-}
-
-span {
-  margin-left: 10px;
-  color: rgba(100, 149, 237, 100);
-  border-bottom: 1px solid rgba(100, 149, 237, 100);
-}
-
-.selectorWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-select {
-  width: 100px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left: 20px;
-  border: 2px solid transparent;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-option {
-  padding: 10px;
-}
-
-select:hover {
-  color: rgba(100, 149, 237, 100);
-  border-color: rgba(100, 149, 237, 100);
 }
 
 /*BUTTONS*/
