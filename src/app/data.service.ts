@@ -41,15 +41,6 @@ export class DataService {
     return this.changeCurrencyFieldFirst(amountOfUAH, amountOfCurrency)
   }
 
-  private changeCurrencyFieldSecond(amountOfUAHSecond: string, amountOfCurrencySecond: string) {
-    this.amountOfUAHSecond = amountOfUAHSecond;
-    this.amountOfCurrencySecond = amountOfCurrencySecond
-  }
-
-  getChangeCurrencyFieldSecond(amountOfUAHSecond: string, amountOfCurrencySecond: string) {
-    return this.changeCurrencyFieldSecond(amountOfUAHSecond, amountOfCurrencySecond)
-  }
-
   private changeCurrentCurrencyFirst(currentCurrencyFirst: string) {
     this.currentCurrencyFirst = currentCurrencyFirst;
     this.amountOfUAH = '';
