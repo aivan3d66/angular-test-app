@@ -1,4 +1,4 @@
-<div [ngClass]="{currency:true}">
+<form [formGroup]="form" [ngClass]="{currency:true}">
   <h2>Currency exchange</h2>
   <div [ngClass]="{currencyActions:true}">
     <button
@@ -25,100 +25,36 @@
       </span>
     </p>
     <div *ngIf="isBuying">
-      <div [ngClass]="{selectorWrapper:true}">
-        <label>
-          You give the next amount of:
-          <input
-            (input)="changeCurrencyFieldFirst($event)"
-            value={{amountOfUAH}}
-            type="number"
-            data-currency="usd"
-          >
-        </label>
-        <select (change)="changeCurrentCurrencyFirst($event)">
-          <option
-            *ngFor="let currency of currencies"
-            [value]="currency.currencyName"
-            [selected]="currentCurrencyFirst === currency.currencyName"
-            [attr.aria-label]="currency.currencyName"
-            [ngValue]="currency.currencyName"
-            [ngClass]="{currencies:true}"
-          >
-            {{currency.currencyName}}
-          </option>
-        </select>
-      </div>
-      <div [ngClass]="{selectorWrapper:true}">
-        <label>
-          You get the next amount of:
-          <input
-            (input)="changeCurrencyFieldSecond($event)"
-            value={{amountOfCurrency}}
-            type="number"
-            data-currency="currency"
-          >
-        </label>
-        <select (change)="changeCurrentCurrencySecond($event)">
-          <option
-            *ngFor="let currency of currencies"
-            [value]="currency.currencyName"
-            [selected]="currentCurrencySecond === currency.currencyName"
-            [attr.aria-label]="currency.currencyName"
-            [ngValue]="currency.currencyName"
-            [ngClass]="{currencies:true}"
-          >
-            {{currency.currencyName}}
-          </option>
-        </select>
-      </div>
+      <chooser-comp
+        formControlName="firstField"
+        [title]="giveAmountTitle"
+        [currentCurrency]="currentCurrencyFirst"
+        [currencies]="currencies"
+        [value]="amountOfUAH"
+      ></chooser-comp>
+      <chooser-comp
+        formControlName="secondField"
+        [title]="getAmountTitle"
+        [currentCurrency]="currentCurrencySecond"
+        [currencies]="currencies"
+        [value]="amountOfCurrency"
+      ></chooser-comp>
     </div>
     <div *ngIf="!isBuying">
-      <div [ngClass]="{selectorWrapper:true}">
-        <label>
-          You get the next amount of:
-          <input
-            (input)="changeCurrencyFieldSecond($event)"
-            value={{amountOfCurrency}}
-            type="number"
-            data-currency="currency"
-          >
-        </label>
-        <select (change)="changeCurrentCurrencySecond($event)">
-          <option
-            *ngFor="let currency of currencies"
-            [value]="currency.currencyName"
-            [selected]="currentCurrencySecond === currency.currencyName"
-            [attr.aria-label]="currency.currencyName"
-            [ngValue]="currency.currencyName"
-            [ngClass]="{currencies:true}"
-          >
-            {{currency.currencyName}}
-          </option>
-        </select>
-      </div>
-      <div [ngClass]="{selectorWrapper:true}">
-        <label>
-          You give the next amount of:
-          <input
-            (input)="changeCurrencyFieldFirst($event)"
-            value={{amountOfUAH}}
-            type="number"
-            data-currency="usd"
-          >
-        </label>
-        <select (change)="changeCurrentCurrencyFirst($event)">
-          <option
-            *ngFor="let currency of currencies"
-            [value]="currency.currencyName"
-            [selected]="currentCurrencyFirst === currency.currencyName"
-            [attr.aria-label]="currency.currencyName"
-            [ngValue]="currency.currencyName"
-            [ngClass]="{currencies:true}"
-          >
-            {{currency.currencyName}}
-          </option>
-        </select>
-      </div>
+      <chooser-comp
+        formControlName="secondField"
+        [title]="getAmountTitle"
+        [currentCurrency]="currentCurrencySecond"
+        [currencies]="currencies"
+        [value]="amountOfCurrency"
+      ></chooser-comp>
+      <chooser-comp
+        formControlName="firstField"
+        [title]="giveAmountTitle"
+        [currentCurrency]="currentCurrencyFirst"
+        [currencies]="currencies"
+        [value]="amountOfUAH"
+      ></chooser-comp>
     </div>
   </div>
-</div>
+</form>
