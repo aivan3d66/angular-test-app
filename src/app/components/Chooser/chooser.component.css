@@ -1,17 +1,10 @@
-ul {
-  list-style: none;
-  display: flex;
-}
-
-li {
-  display: inline-block;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
 .fields {
-  display: block;
+  display: flex;
   margin-bottom: 20px;
+}
+
+label {
+  flex-grow: 2;
 }
 
 input {
@@ -33,12 +26,6 @@ input:focus {
   border-bottom: 2px solid rgba(100, 149, 237, 100);
 }
 
-span {
-  margin-left: 10px;
-  color: rgba(100, 149, 237, 100);
-  border-bottom: 1px solid rgba(100, 149, 237, 100);
-}
-
 .selectorWrapper {
   display: flex;
   justify-content: space-between;
@@ -46,17 +33,15 @@ span {
 }
 
 select {
-  width: 100px;
+  flex-grow: 1;
+  width: 80px;
   height: 40px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 30px;
+  text-align: center;
   border: 2px solid transparent;
   transition: 0.3s;
   cursor: pointer;
-}
-
-option {
-  padding: 10px;
 }
 
 select:hover {
@@ -79,3 +64,4 @@ p {
   border: 2px solid rgba(100, 149, 237, 100);
   transition: 0.3s;
 }
+

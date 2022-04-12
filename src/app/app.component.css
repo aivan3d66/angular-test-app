@@ -1,7 +1,7 @@
 .app-container {
   min-width: 540px;
-  max-width: 540px;
-  padding: 4em;
+  max-width: 768px;
+  padding: 1em 4em;
   margin: 0 auto;
 }
 
@@ -12,7 +12,7 @@ section {
 }
 
 button {
-  max-width: 100px;
+  max-width: 80px;
   margin: 20px auto;
 }
 

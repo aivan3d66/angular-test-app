@@ -2,18 +2,24 @@
 
 .currency {
   margin: 50px 0 0 0;
-  padding: 0 15px 15px 15px;
+  padding: 15px;
   font-family: FreeMono, monospace;
   border: 2px solid transparent;
-  border-radius: 10px;
   background-color: rgba(249, 247, 246, 0.9);
-  box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+  /*box-shadow: 0 10px 6px 0 rgba(34, 60, 80, 0.2);*/
 }
 
 h2 {
+  margin: 10px auto 40px auto;
   color: rgb(77, 77, 77);
   text-align: center;
   letter-spacing: 2px;
+}
+
+.rateSpan {
+  margin-left: 10px;
+  color: rgba(100, 149, 237, 100);
+  border-bottom: 1px solid rgba(100, 149, 237, 100);
 }
 
 /*BUTTONS*/
@@ -24,7 +30,7 @@ h2 {
 }
 
 button {
-  width: 40%;
+  width: 180px;
   padding: 10px;
   text-align: center;
   color: rgba(100, 149, 237, 100);
