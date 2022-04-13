@@ -13,4 +13,9 @@ export class ApiService {
     const myHeaders = new HttpHeaders().set('X-RapidAPI-Key', 'b128bf2c40msh02bc0681c229b65p17d27ajsnfd4d3f82091e');
     return this.http.get(BASE_URL + BASE_CURRENCY + CURRENCIES, {headers: myHeaders})
   }
+
+  getAllData() {
+    const myHeaders = new HttpHeaders().set('X-RapidAPI-Key', 'b128bf2c40msh02bc0681c229b65p17d27ajsnfd4d3f82091e');
+    return this.http.get(BASE_URL + BASE_CURRENCY, {headers: myHeaders})
+  }
 }
