@@ -1,0 +1,6 @@
+<div [ngClass]="{tableCurrencies:true}">
+  <h2>Table of currencies</h2>
+  <ul>
+    <li *ngFor="let currency of currencies">{{currency.currencyName}} - {{currency.buyRate}}</li>
+  </ul>
+</div>
