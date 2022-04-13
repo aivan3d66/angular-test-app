@@ -1,7 +1,8 @@
 /*CURRENCY*/
 
 .currency {
-  margin: 50px 0 0 0;
+  width: 540px;
+  margin: 50px auto 0 auto;
   padding: 15px;
   font-family: FreeMono, monospace;
   border: 2px solid transparent;
