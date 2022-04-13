@@ -2,6 +2,7 @@
   <div>
     <img src="./../../../assets/image/exchange.png" alt="logo">
     <ul>
+      <span>Current currency exchange rate, based UAH:</span>
       <li *ngFor="let currency of currencies">
         {{currency.currencyName}} - {{currency.buyRate }}
       </li>
